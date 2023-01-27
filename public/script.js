@@ -10,6 +10,17 @@ const resetQuotes = () => {
   quoteContainer.innerHTML = '';
 }
 
+const deleteQuote = (id) => {
+  fetch(`/api/quotes/${id}`, { method: 'DELETE' })
+    .then(response => {
+      if (response.status === 204) {
+        quoteContainer.innerHTML = `<p>Successfully deleted quote.</p>`;
+      } else {
+        renderError(response);
+      }
+    })
+}
+
 const renderError = response => {
   quoteContainer.innerHTML = `<p>Your request returned an error from the server: </p>
 <p>Code: ${response.status}</p>
@@ -23,7 +34,7 @@ const renderQuotes = (quotes = []) => {
       const newQuote = document.createElement('div');
       newQuote.className = 'single-quote';
       newQuote.innerHTML = `<div class="quote-text">${quote.quote}</div>
-      <div class="attribution">- ${quote.person}</div>`;
+      <div><span class="attribution">- ${quote.person}</span><a class="action-link" href="javascript:deleteQuote(${quote.id})">Delete</a><a class="action-link" href="edit-quote.html?id=${quote.id}">Edit</a></div>`;
       quoteContainer.appendChild(newQuote);
     });
   } else {

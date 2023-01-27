@@ -33,7 +33,7 @@ nav a {
   margin: 5px;
 }
 
-input {
+input, textarea {
   font-size: 16px;
   padding: 10px;
 }
@@ -58,10 +58,22 @@ button:hover {
   width: 60%;
 }
 
+#quote {
+  min-height: 150px;
+}
+
 .single-quote {
   padding: 10px;
 }
 
 .quote-text {
   font-style: italic;
+}
+
+.action-link {
+  float: right;
+}
+
+.action-link:nth-of-type(2){
+  margin-right: 10px;
 }

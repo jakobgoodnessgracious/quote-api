@@ -3,11 +3,6 @@ const getRandomElement = arr => {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-const filterByKeyValue = (key, value, array) => {
-  return array.filter(item => item[key] === value);
-}
-
 module.exports = {
-  getRandomElement,
-  filterByKeyValue
+  getRandomElement
 };

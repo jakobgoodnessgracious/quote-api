@@ -13,4 +13,4 @@ app.use('/api/quotes', quotesRouter);
 
 app.listen(PORT, () => {
     console.log(`App started on port ${PORT}`);
-})
+});
